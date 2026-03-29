@@ -81,6 +81,7 @@
             colNotes = new DataGridViewTextBoxColumn();
             btnFullScreen = new Button();
             toolTip1 = new ToolTip(components);
+            leaderBoardFullScreenToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             grpLeaderBoard.SuspendLayout();
             grpScoreBox.SuspendLayout();
@@ -158,7 +159,7 @@
             // 
             // viewToolStripMenuItem
             // 
-            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fullScreenToolStripMenuItem });
+            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fullScreenToolStripMenuItem, leaderBoardFullScreenToolStripMenuItem });
             viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             viewToolStripMenuItem.Size = new Size(44, 20);
             viewToolStripMenuItem.Text = "&View";
@@ -168,7 +169,7 @@
             fullScreenToolStripMenuItem.Checked = true;
             fullScreenToolStripMenuItem.CheckState = CheckState.Checked;
             fullScreenToolStripMenuItem.Name = "fullScreenToolStripMenuItem";
-            fullScreenToolStripMenuItem.Size = new Size(131, 22);
+            fullScreenToolStripMenuItem.Size = new Size(203, 22);
             fullScreenToolStripMenuItem.Text = "F&ull Screen";
             fullScreenToolStripMenuItem.Click += fullScreenToolStripMenuItem_Click;
             // 
@@ -190,9 +191,9 @@
             // 
             grpLeaderBoard.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             grpLeaderBoard.Controls.Add(lstLeaderBoard);
-            grpLeaderBoard.Location = new Point(1562, 27);
+            grpLeaderBoard.Location = new Point(1562, 37);
             grpLeaderBoard.Name = "grpLeaderBoard";
-            grpLeaderBoard.Size = new Size(519, 851);
+            grpLeaderBoard.Size = new Size(519, 841);
             grpLeaderBoard.TabIndex = 1;
             grpLeaderBoard.TabStop = false;
             grpLeaderBoard.Text = "Leader Board";
@@ -205,13 +206,13 @@
             lstLeaderBoard.FormattingEnabled = true;
             lstLeaderBoard.Location = new Point(6, 22);
             lstLeaderBoard.Name = "lstLeaderBoard";
-            lstLeaderBoard.Size = new Size(507, 804);
+            lstLeaderBoard.Size = new Size(507, 772);
             lstLeaderBoard.TabIndex = 0;
             // 
             // grpScoreBox
             // 
             grpScoreBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            grpScoreBox.BackColor = SystemColors.ActiveCaption;
+            grpScoreBox.BackColor = SystemColors.AppWorkspace;
             grpScoreBox.Controls.Add(lblActiveNotes);
             grpScoreBox.Controls.Add(lblActiveScore);
             grpScoreBox.Controls.Add(lblActiveSchool);
@@ -224,9 +225,9 @@
             grpScoreBox.Controls.Add(lblScoreScoreBox);
             grpScoreBox.Controls.Add(lblSchoolScoreBox);
             grpScoreBox.Controls.Add(lblNameScoreBox);
-            grpScoreBox.Location = new Point(816, 27);
+            grpScoreBox.Location = new Point(816, 37);
             grpScoreBox.Name = "grpScoreBox";
-            grpScoreBox.Size = new Size(740, 465);
+            grpScoreBox.Size = new Size(740, 455);
             grpScoreBox.TabIndex = 3;
             grpScoreBox.TabStop = false;
             grpScoreBox.Text = "Score Box";
@@ -350,7 +351,7 @@
             // 
             // grpCompetitorEntry
             // 
-            grpCompetitorEntry.BackColor = SystemColors.ActiveCaption;
+            grpCompetitorEntry.BackColor = SystemColors.AppWorkspace;
             grpCompetitorEntry.Controls.Add(btnFind);
             grpCompetitorEntry.Controls.Add(txtSearch);
             grpCompetitorEntry.Controls.Add(lblSearch);
@@ -364,9 +365,9 @@
             grpCompetitorEntry.Controls.Add(lblName);
             grpCompetitorEntry.Controls.Add(txtSchool);
             grpCompetitorEntry.Controls.Add(txtName);
-            grpCompetitorEntry.Location = new Point(12, 27);
+            grpCompetitorEntry.Location = new Point(12, 37);
             grpCompetitorEntry.Name = "grpCompetitorEntry";
-            grpCompetitorEntry.Size = new Size(798, 465);
+            grpCompetitorEntry.Size = new Size(798, 455);
             grpCompetitorEntry.TabIndex = 4;
             grpCompetitorEntry.TabStop = false;
             grpCompetitorEntry.Text = "Competitor Entry";
@@ -489,10 +490,11 @@
             // grpContestants
             // 
             grpContestants.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            grpContestants.BackColor = SystemColors.AppWorkspace;
             grpContestants.Controls.Add(dgvContestants);
-            grpContestants.Location = new Point(12, 498);
+            grpContestants.Location = new Point(12, 508);
             grpContestants.Name = "grpContestants";
-            grpContestants.Size = new Size(798, 380);
+            grpContestants.Size = new Size(798, 370);
             grpContestants.TabIndex = 5;
             grpContestants.TabStop = false;
             grpContestants.Text = "Contestants";
@@ -505,7 +507,7 @@
             dgvContestants.Location = new Point(13, 22);
             dgvContestants.Name = "dgvContestants";
             dgvContestants.RowHeadersVisible = false;
-            dgvContestants.Size = new Size(779, 352);
+            dgvContestants.Size = new Size(779, 342);
             dgvContestants.TabIndex = 7;
             // 
             // colID
@@ -551,10 +553,16 @@
             btnFullScreen.UseVisualStyleBackColor = true;
             btnFullScreen.Click += btnFullScreen_Click_1;
             // 
+            // leaderBoardFullScreenToolStripMenuItem
+            // 
+            leaderBoardFullScreenToolStripMenuItem.Name = "leaderBoardFullScreenToolStripMenuItem";
+            leaderBoardFullScreenToolStripMenuItem.Size = new Size(203, 22);
+            leaderBoardFullScreenToolStripMenuItem.Text = "Leader Board Full Screen";
+            leaderBoardFullScreenToolStripMenuItem.Click += leaderBoardFullScreenToolStripMenuItem_Click;
+            // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(2093, 890);
             Controls.Add(btnFullScreen);
@@ -563,9 +571,12 @@
             Controls.Add(grpScoreBox);
             Controls.Add(grpLeaderBoard);
             Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MainMenuStrip = menuStrip1;
+            MinimumSize = new Size(1200, 800);
             Name = "MainForm";
             Text = "WeldingScoreboard";
+            WindowState = FormWindowState.Maximized;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             grpLeaderBoard.ResumeLayout(false);
@@ -639,6 +650,7 @@
         private DataGridViewTextBoxColumn colScore;
         private DataGridViewTextBoxColumn colNotes;
         private ToolStripMenuItem clearToolStripMenuItem;
+        private ToolStripMenuItem leaderBoardFullScreenToolStripMenuItem;
 
         public EventHandler MainForm_Load { get; private set; }
     }

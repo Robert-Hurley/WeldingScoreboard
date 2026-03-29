@@ -13,7 +13,7 @@ namespace WeldingScoreboard
         public MainForm()
         {
             InitializeComponent();
-
+            this.WindowState = FormWindowState.Maximized;
             dgvContestants.AllowUserToAddRows = false;
             dgvContestants.RowHeadersVisible = false;
             dgvContestants.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -386,6 +386,12 @@ namespace WeldingScoreboard
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ResetFormFields();
+        }
+
+        private void leaderBoardFullScreenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LeaderBoardForm leaderBoardForm = new LeaderBoardForm(contestants);
+            leaderBoardForm.Show();
         }
     }
 }
